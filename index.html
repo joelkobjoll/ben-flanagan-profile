@@ -1,920 +1,196 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Ben Flanagan | Costa Life Properties & PC-Macs</title>
-    <meta name="description" content="Ben Flanagan in Estepona, Costa del Sol. Founder of Costa Life Properties and owner of PC-Macs, offering real estate guidance and trusted IT services.">
-    <link rel="preconnect" href="https://images.unsplash.com">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkR4j8blCq75SslvYnANI5if6kFf5QkX+txA==" crossorigin="anonymous" referrerpolicy="no-referrer">
-    <style>
-        :root {
-            --bg: #f5efe7;
-            --surface: rgba(255, 250, 244, 0.72);
-            --surface-strong: #fffaf4;
-            --surface-dark: #0f2f31;
-            --ink: #1b2321;
-            --muted: #5d675f;
-            --line: rgba(27, 35, 33, 0.1);
-            --teal: #123f42;
-            --teal-soft: #1b5a5f;
-            --gold: #b99655;
-            --gold-soft: #e0c58c;
-            --sand: #e7d7c0;
-            --white: #ffffff;
-            --shadow: 0 18px 40px rgba(15, 47, 49, 0.12);
-            --radius: 24px;
-            --max: 1180px;
-        }
-
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
-
-        html {
-            scroll-behavior: smooth;
-        }
-
-        body {
-            font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-            color: var(--ink);
-            background:
-                radial-gradient(circle at top left, rgba(185, 150, 85, 0.16), transparent 28%),
-                linear-gradient(180deg, #fbf7f1 0%, var(--bg) 54%, #f1e8dc 100%);
-            line-height: 1.6;
-            overflow-x: hidden;
-        }
-
-        img {
-            max-width: 100%;
-            display: block;
-        }
-
-        a {
-            color: inherit;
-        }
-
-        .sr-only {
-            position: absolute;
-            width: 1px;
-            height: 1px;
-            padding: 0;
-            margin: -1px;
-            overflow: hidden;
-            clip: rect(0, 0, 0, 0);
-            white-space: nowrap;
-            border: 0;
-        }
-
-        .page-shell {
-            width: min(calc(100% - 1.25rem), var(--max));
-            margin: 0 auto;
-        }
-
-        .topbar {
-            position: sticky;
-            top: 0;
-            z-index: 30;
-            backdrop-filter: blur(16px);
-            background: rgba(245, 239, 231, 0.76);
-            border-bottom: 1px solid rgba(18, 63, 66, 0.08);
-        }
-
-        .topbar-inner {
-            width: min(calc(100% - 1.25rem), var(--max));
-            margin: 0 auto;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            gap: 1rem;
-            padding: 0.9rem 0;
-        }
-
-        .brand {
-            text-decoration: none;
-            display: inline-flex;
-            flex-direction: column;
-            gap: 0.1rem;
-        }
-
-        .brand strong {
-            font-family: "Iowan Old Style", "Palatino Linotype", "Book Antiqua", Georgia, serif;
-            font-size: 1.08rem;
-            letter-spacing: 0.03em;
-            color: var(--teal);
-        }
-
-        .brand span {
-            font-size: 0.72rem;
-            text-transform: uppercase;
-            letter-spacing: 0.18em;
-            color: var(--muted);
-        }
-
-        .nav {
-            display: none;
-            gap: 1.2rem;
-            align-items: center;
-        }
-
-        .nav a {
-            text-decoration: none;
-            color: var(--muted);
-            font-size: 0.94rem;
-            transition: color 180ms ease;
-        }
-
-        .nav a:hover,
-        .nav a:focus-visible {
-            color: var(--teal);
-        }
-
-        .hero {
-            position: relative;
-            min-height: 100svh;
-            display: flex;
-            align-items: center;
-            padding: 1rem 0 2.5rem;
-        }
-
-        .hero::before {
-            content: "";
-            position: absolute;
-            inset: 0;
-            background:
-                linear-gradient(180deg, rgba(8, 25, 27, 0.22) 0%, rgba(8, 25, 27, 0.46) 100%),
-                linear-gradient(120deg, rgba(18, 63, 66, 0.65) 0%, rgba(18, 63, 66, 0.18) 52%, rgba(185, 150, 85, 0.38) 100%),
-                url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=1920') center/cover no-repeat;
-            z-index: -2;
-        }
-
-        .hero::after {
-            content: "";
-            position: absolute;
-            inset: auto 0 0;
-            height: 11rem;
-            background: linear-gradient(180deg, transparent, var(--bg));
-            z-index: -1;
-        }
-
-        .hero-card {
-            width: 100%;
-            color: var(--white);
-            padding: 4.75rem 1.2rem 2rem;
-            border-radius: 1.75rem;
-            background: linear-gradient(180deg, rgba(255,255,255,0.08), rgba(255,255,255,0.03));
-            border: 1px solid rgba(255,255,255,0.12);
-            box-shadow: 0 24px 60px rgba(10, 24, 25, 0.24);
-            backdrop-filter: blur(10px);
-        }
-
-        .eyebrow {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.55rem;
-            padding: 0.5rem 0.8rem;
-            margin-bottom: 1rem;
-            border-radius: 999px;
-            background: rgba(255, 255, 255, 0.12);
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            color: #f4e6c7;
-            font-size: 0.76rem;
-            letter-spacing: 0.14em;
-            text-transform: uppercase;
-            font-weight: 700;
-        }
-
-        h1,
-        h2,
-        h3,
-        .quote-mark {
-            font-family: "Iowan Old Style", "Palatino Linotype", "Book Antiqua", Georgia, serif;
-            line-height: 1.08;
-            letter-spacing: -0.02em;
-        }
-
-        .hero h1 {
-            font-size: clamp(2.5rem, 7vw, 5.5rem);
-            margin-bottom: 0.9rem;
-            max-width: 10ch;
-        }
-
-        .hero-lead {
-            max-width: 40rem;
-            font-size: 1rem;
-            color: rgba(255,255,255,0.9);
-            margin-bottom: 1.35rem;
-        }
-
-        .hero-meta {
-            display: grid;
-            gap: 0.75rem;
-            margin-bottom: 1.4rem;
-        }
-
-        .hero-meta .meta-chip {
-            display: inline-flex;
-            flex-wrap: wrap;
-            gap: 0.5rem;
-            align-items: center;
-            width: fit-content;
-            max-width: 100%;
-            padding: 0.72rem 0.9rem;
-            border-radius: 1rem;
-            background: rgba(255,255,255,0.1);
-            border: 1px solid rgba(255,255,255,0.12);
-            font-weight: 600;
-            font-size: 0.94rem;
-        }
-
-        .hero-actions {
-            display: flex;
-            flex-direction: column;
-            gap: 0.75rem;
-            margin-bottom: 1.4rem;
-        }
-
-        .btn {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            gap: 0.7rem;
-            min-height: 3rem;
-            padding: 0.9rem 1.2rem;
-            border-radius: 999px;
-            text-decoration: none;
-            border: 1px solid transparent;
-            font-weight: 700;
-            transition: transform 180ms ease, box-shadow 180ms ease, background 180ms ease, border-color 180ms ease;
-        }
-
-        .btn:hover,
-        .btn:focus-visible {
-            transform: translateY(-2px);
-        }
-
-        .btn-primary {
-            background: linear-gradient(135deg, var(--gold) 0%, #d9ba79 100%);
-            color: #142628;
-            box-shadow: 0 14px 28px rgba(185, 150, 85, 0.24);
-        }
-
-        .btn-secondary {
-            background: rgba(255,255,255,0.08);
-            color: var(--white);
-            border-color: rgba(255,255,255,0.22);
-        }
-
-        .hero-stats {
-            display: grid;
-            grid-template-columns: repeat(2, minmax(0, 1fr));
-            gap: 0.85rem;
-        }
-
-        .stat {
-            padding: 1rem;
-            border-radius: 1.1rem;
-            background: rgba(255,255,255,0.1);
-            border: 1px solid rgba(255,255,255,0.14);
-        }
-
-        .stat strong {
-            display: block;
-            font-size: 1.2rem;
-            margin-bottom: 0.2rem;
-        }
-
-        .section {
-            padding: 1rem 0 3.2rem;
-        }
-
-        .section-header {
-            margin-bottom: 1.35rem;
-        }
-
-        .section-kicker {
-            display: inline-block;
-            margin-bottom: 0.5rem;
-            color: var(--gold);
-            font-size: 0.76rem;
-            text-transform: uppercase;
-            letter-spacing: 0.18em;
-            font-weight: 800;
-        }
-
-        .section h2 {
-            font-size: clamp(2rem, 5vw, 3.4rem);
-            color: var(--teal);
-            margin-bottom: 0.65rem;
-        }
-
-        .section-copy {
-            color: var(--muted);
-            max-width: 44rem;
-        }
-
-        .intro-grid,
-        .cards,
-        .contact-grid,
-        .details-grid,
-        .review-grid {
-            display: grid;
-            gap: 1rem;
-        }
-
-        .glass,
-        .business-card,
-        .detail-card,
-        .review-card,
-        .contact-card {
-            background: var(--surface);
-            border: 1px solid rgba(255,255,255,0.6);
-            box-shadow: var(--shadow);
-            backdrop-filter: blur(16px);
-            border-radius: var(--radius);
-        }
-
-        .intro-card {
-            padding: 1.25rem;
-        }
-
-        .intro-card p,
-        .detail-card p,
-        .business-body p,
-        .review-card p,
-        .contact-card p,
-        .contact-card address {
-            color: var(--muted);
-        }
-
-        .signature {
-            display: inline-flex;
-            gap: 0.65rem;
-            align-items: center;
-            margin-top: 1.1rem;
-            padding: 0.65rem 0.85rem;
-            border-radius: 999px;
-            background: rgba(18, 63, 66, 0.06);
-            color: var(--teal);
-            font-weight: 700;
-        }
-
-        .details-grid {
-            margin-top: 1rem;
-        }
-
-        .detail-card {
-            padding: 1.15rem;
-        }
-
-        .detail-card i {
-            color: var(--gold);
-            font-size: 1.15rem;
-            margin-bottom: 0.65rem;
-        }
-
-        .detail-card strong {
-            display: block;
-            margin-bottom: 0.35rem;
-            color: var(--teal);
-        }
-
-        .cards {
-            margin-top: 1.25rem;
-        }
-
-        .business-card {
-            overflow: hidden;
-        }
-
-        .business-media {
-            position: relative;
-            min-height: 16rem;
-            background-size: cover;
-            background-position: center;
-        }
-
-        .business-media::after {
-            content: "";
-            position: absolute;
-            inset: 0;
-            background: linear-gradient(180deg, rgba(18, 63, 66, 0.08), rgba(18, 63, 66, 0.62));
-        }
-
-        .business-badge {
-            position: absolute;
-            left: 1rem;
-            bottom: 1rem;
-            z-index: 1;
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-            padding: 0.65rem 0.85rem;
-            border-radius: 999px;
-            background: rgba(255,255,255,0.9);
-            color: var(--teal);
-            font-size: 0.78rem;
-            font-weight: 800;
-            text-transform: uppercase;
-            letter-spacing: 0.12em;
-        }
-
-        .business-body {
-            padding: 1.35rem;
-        }
-
-        .business-body h3 {
-            font-size: 1.9rem;
-            color: var(--teal);
-            margin-bottom: 0.75rem;
-        }
-
-        .pill-row,
-        .list {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.65rem;
-            margin-top: 1rem;
-        }
-
-        .pill {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-            padding: 0.6rem 0.8rem;
-            border-radius: 999px;
-            background: rgba(18, 63, 66, 0.06);
-            color: var(--teal);
-            font-size: 0.86rem;
-            font-weight: 700;
-        }
-
-        .business-links {
-            display: grid;
-            gap: 0.7rem;
-            margin-top: 1rem;
-        }
-
-        .business-link {
-            display: flex;
-            align-items: flex-start;
-            gap: 0.8rem;
-            padding: 0.95rem 1rem;
-            border-radius: 1rem;
-            background: rgba(18, 63, 66, 0.045);
-            text-decoration: none;
-            transition: transform 180ms ease, background 180ms ease;
-        }
-
-        .business-link:hover,
-        .business-link:focus-visible {
-            transform: translateY(-2px);
-            background: rgba(18, 63, 66, 0.085);
-        }
-
-        .business-link i {
-            color: var(--gold);
-            margin-top: 0.1rem;
-        }
-
-        .business-link strong {
-            display: block;
-            color: var(--teal);
-            margin-bottom: 0.15rem;
-        }
-
-        .list {
-            list-style: none;
-            flex-direction: column;
-        }
-
-        .list li {
-            display: flex;
-            align-items: flex-start;
-            gap: 0.7rem;
-            color: var(--ink);
-        }
-
-        .list i {
-            color: var(--gold);
-            margin-top: 0.22rem;
-        }
-
-        .review-grid {
-            margin-top: 1.25rem;
-        }
-
-        .review-card {
-            padding: 1.4rem;
-            position: relative;
-        }
-
-        .quote-mark {
-            color: var(--gold);
-            font-size: 3rem;
-            line-height: 1;
-            margin-bottom: 0.6rem;
-        }
-
-        .review-card blockquote {
-            font-size: 1.15rem;
-            color: var(--ink);
-            margin-bottom: 1rem;
-        }
-
-        .review-card footer {
-            color: var(--teal);
-            font-weight: 700;
-        }
-
-        .contact-panel {
-            padding: 1.25rem;
-            background: linear-gradient(135deg, rgba(18, 63, 66, 0.96), rgba(10, 35, 37, 0.96));
-            color: var(--white);
-            border-radius: 2rem;
-            box-shadow: 0 24px 60px rgba(15, 47, 49, 0.22);
-        }
-
-        .contact-panel h2,
-        .contact-panel p,
-        .contact-panel address,
-        .contact-panel a {
-            color: var(--white);
-        }
-
-        .contact-grid {
-            margin-top: 1.25rem;
-        }
-
-        .contact-card {
-            padding: 1rem;
-            background: rgba(255,255,255,0.08);
-            border-color: rgba(255,255,255,0.12);
-            box-shadow: none;
-        }
-
-        .contact-card .label {
-            display: block;
-            font-size: 0.76rem;
-            text-transform: uppercase;
-            letter-spacing: 0.14em;
-            color: rgba(255,255,255,0.66);
-            margin-bottom: 0.3rem;
-            font-weight: 700;
-        }
-
-        .contact-card strong,
-        .contact-card a,
-        .contact-card address {
-            font-style: normal;
-            font-size: 1rem;
-            text-decoration: none;
-        }
-
-        .contact-card i {
-            color: var(--gold-soft);
-            margin-right: 0.5rem;
-        }
-
-        .footer {
-            padding: 2.5rem 0 3rem;
-            text-align: center;
-            color: var(--muted);
-            font-size: 0.95rem;
-        }
-
-        [data-reveal] {
-            opacity: 0;
-            transform: translateY(18px);
-            transition: opacity 650ms ease, transform 650ms ease;
-        }
-
-        [data-reveal].is-visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        @media (min-width: 700px) {
-            .topbar-inner {
-                padding: 1rem 0;
-            }
-
-            .nav {
-                display: flex;
-            }
-
-            .hero-card {
-                padding: 6rem 2.4rem 2.5rem;
-            }
-
-            .hero-actions {
-                flex-direction: row;
-                flex-wrap: wrap;
-            }
-
-            .hero-stats,
-            .details-grid,
-            .review-grid,
-            .contact-grid {
-                grid-template-columns: repeat(2, minmax(0, 1fr));
-            }
-
-            .intro-grid {
-                grid-template-columns: 1.15fr 0.85fr;
-                align-items: stretch;
-            }
-
-            .cards {
-                grid-template-columns: repeat(2, minmax(0, 1fr));
-                align-items: start;
-            }
-        }
-
-        @media (min-width: 980px) {
-            .hero-card {
-                padding: 6.5rem 3rem 3rem;
-                max-width: 57rem;
-            }
-
-            .business-body,
-            .intro-card,
-            .contact-panel {
-                padding: 1.6rem;
-            }
-
-            .details-grid {
-                grid-template-columns: repeat(4, minmax(0, 1fr));
-            }
-        }
-
-        @media (prefers-reduced-motion: reduce) {
-            html {
-                scroll-behavior: auto;
-            }
-
-            *,
-            *::before,
-            *::after {
-                animation: none !important;
-                transition: none !important;
-            }
-
-            [data-reveal] {
-                opacity: 1;
-                transform: none;
-            }
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ben Flanagan — Estepona, Costa del Sol</title>
+  <style>
+    :root {
+      --bg: #faf9f7;
+      --accent: #0f4c4b;
+      --text: #1a1a1a;
+      --text-muted: #666;
+      --text-light: #888;
+      --line: #e5e3df;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Inter", "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.65;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    /* Hero */
+    .hero {
+      position: relative;
+      min-height: 55vh;
+      display: flex;
+      align-items: flex-end;
+      padding: 2rem 1.5rem 3rem;
+      background: linear-gradient(rgba(0,0,0,0.55), rgba(0,0,0,0.55)),
+                  url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=1400&q=80') center/cover no-repeat;
+    }
+    .hero-content { position: relative; z-index: 1; max-width: 680px; }
+    .hero h1 {
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 2.2rem;
+      font-weight: 400;
+      color: #fff;
+      line-height: 1.2;
+      margin-bottom: 0.5rem;
+    }
+    .hero p {
+      color: rgba(255,255,255,0.85);
+      font-size: 1.05rem;
+      font-weight: 300;
+    }
+
+    /* Sections */
+    section {
+      padding: 4rem 1.5rem;
+      max-width: 680px;
+      margin: 0 auto;
+    }
+    section + section { border-top: 1px solid var(--line); }
+
+    h2 {
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 1.6rem;
+      font-weight: 400;
+      color: var(--accent);
+      margin-bottom: 1.25rem;
+      letter-spacing: -0.01em;
+    }
+
+    p { margin-bottom: 1rem; color: var(--text-muted); }
+    p:last-child { margin-bottom: 0; }
+
+    /* Business cards */
+    .business {
+      margin-bottom: 2.5rem;
+    }
+    .business:last-child { margin-bottom: 0; }
+    .business h3 {
+      font-size: 1.15rem;
+      font-weight: 600;
+      color: var(--text);
+      margin-bottom: 0.35rem;
+    }
+    .business .tag {
+      display: inline-block;
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--text-light);
+      margin-bottom: 0.75rem;
+    }
+    .business p { margin-bottom: 0.5rem; }
+    .business a { font-weight: 500; }
+
+    /* Review */
+    .review {
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 1.25rem;
+      font-style: italic;
+      color: var(--text);
+      line-height: 1.5;
+      margin-bottom: 0.75rem;
+    }
+    .review-author {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+    }
+
+    /* Contact */
+    .contact-item {
+      margin-bottom: 0.85rem;
+      font-size: 0.95rem;
+      color: var(--text-muted);
+    }
+    .contact-item strong {
+      display: inline-block;
+      width: 5rem;
+      color: var(--text);
+      font-weight: 500;
+    }
+
+    /* Footer */
+    footer {
+      text-align: center;
+      padding: 2.5rem 1.5rem 3rem;
+      font-size: 0.8rem;
+      color: var(--text-light);
+      border-top: 1px solid var(--line);
+    }
+
+    /* Desktop */
+    @media (min-width: 768px) {
+      .hero { padding: 3rem 2.5rem 4rem; min-height: 60vh; }
+      .hero h1 { font-size: 3rem; }
+      .hero p { font-size: 1.15rem; }
+      section { padding: 5rem 2.5rem; }
+      h2 { font-size: 1.8rem; }
+    }
+  </style>
 </head>
 <body>
-    <a class="sr-only" href="#main-content">Skip to content</a>
 
-    <header class="topbar" aria-label="Primary">
-        <div class="topbar-inner">
-            <a class="brand" href="#top">
-                <strong>Ben Flanagan</strong>
-                <span>Estepona · Costa del Sol</span>
-            </a>
-            <nav class="nav">
-                <a href="#profile">Profile</a>
-                <a href="#businesses">Businesses</a>
-                <a href="#reviews">Reviews</a>
-                <a href="#contact">Contact</a>
-            </nav>
-        </div>
-    </header>
+  <header class="hero">
+    <div class="hero-content">
+      <h1>Ben Flanagan</h1>
+      <p>Estepona, Costa del Sol</p>
+    </div>
+  </header>
 
-    <main id="main-content">
-        <section class="hero" id="top" aria-label="Introduction">
-            <div class="page-shell">
-                <div class="hero-card" data-reveal>
-                    <div class="eyebrow"><i class="fa-solid fa-location-dot" aria-hidden="true"></i> Estepona, Costa del Sol</div>
-                    <h1>Luxury property insight. Trusted local tech support.</h1>
-                    <p class="hero-lead">Ben Flanagan brings together <strong>Costa Life Properties</strong> and <strong>PC-Macs</strong> in one premium profile — real estate guidance with a modern Costa del Sol feel, backed by over 14 years of hands-on IT service in Estepona.</p>
+  <section id="about">
+    <h2>About</h2>
+    <p>Based in Estepona on Spain's beautiful Costa del Sol, I run two local businesses serving the community with professionalism and care.</p>
+  </section>
 
-                    <div class="hero-meta" aria-label="Key highlights">
-                        <div class="meta-chip"><i class="fa-solid fa-building" aria-hidden="true"></i> Costa Life Properties · Est. Jan 2023</div>
-                        <div class="meta-chip"><i class="fa-solid fa-laptop-medical" aria-hidden="true"></i> PC-Macs · 14+ years of IT services</div>
-                    </div>
+  <section id="businesses">
+    <h2>Businesses</h2>
 
-                    <div class="hero-actions">
-                        <a class="btn btn-primary" href="#contact"><i class="fa-solid fa-envelope" aria-hidden="true"></i> Contact Ben</a>
-                        <a class="btn btn-secondary" href="#businesses"><i class="fa-solid fa-arrow-down" aria-hidden="true"></i> Explore both businesses</a>
-                    </div>
+    <div class="business">
+      <h3>Costa Life Properties</h3>
+      <span class="tag">Real Estate &middot; Est. January 2023</span>
+      <p>Helping clients find their perfect home along the Costa del Sol. Personal service, local knowledge, and a commitment to making every transaction smooth.</p>
+      <p><a href="https://costalifeproperties.com" target="_blank" rel="noopener">costalifeproperties.com</a></p>
+    </div>
 
-                    <div class="hero-stats" aria-label="Business summary">
-                        <div class="stat">
-                            <strong>2 active businesses</strong>
-                            <span>Real estate and technology services in Estepona.</span>
-                        </div>
-                        <div class="stat">
-                            <strong>NIE X1516151Z</strong>
-                            <span>Professional identity included for trust and verification.</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
+    <div class="business">
+      <h3>PC-Macs</h3>
+      <span class="tag">IT Services &middot; 14+ Years Experience</span>
+      <p>Reliable IT support for homes and businesses. From troubleshooting to full setups, I've been keeping systems running smoothly for over fourteen years.</p>
+      <p><a href="https://pc-macs.es" target="_blank" rel="noopener">pc-macs.es</a></p>
+    </div>
+  </section>
 
-        <section class="section" id="profile">
-            <div class="page-shell">
-                <div class="section-header" data-reveal>
-                    <span class="section-kicker">Profile</span>
-                    <h2>Ben Flanagan in Estepona</h2>
-                    <p class="section-copy">A clean, premium profile designed around two complementary businesses: high-trust real estate support through Costa Life Properties and long-established IT services through PC-Macs.</p>
-                </div>
+  <section id="testimonial">
+    <h2>What People Say</h2>
+    <blockquote class="review">&ldquo;Muy buen servicio!&rdquo;</blockquote>
+    <p class="review-author">&mdash; Terttu Balson</p>
+  </section>
 
-                <div class="intro-grid">
-                    <article class="glass intro-card" data-reveal>
-                        <p>Based in <strong>Estepona, Costa del Sol</strong>, Ben Flanagan operates in two worlds that both rely on trust, responsiveness and practical expertise. Costa Life Properties delivers local property support for buyers, sellers and investors, while PC-Macs continues to serve the area with dependable tech repairs and business IT help.</p>
-                        <div class="signature"><i class="fa-solid fa-id-card" aria-hidden="true"></i> NIE: X1516151Z</div>
-                    </article>
+  <section id="contact">
+    <h2>Contact</h2>
+    <div class="contact-item"><strong>Address</strong> Calle Caridad 5, 29680 Estepona</div>
+    <div class="contact-item"><strong>Phone</strong> <a href="tel:+34670938077">+34 670 938 077</a></div>
+    <div class="contact-item"><strong>Email</strong> <a href="mailto:admin@costalifeproperties.com">admin@costalifeproperties.com</a></div>
+    <div class="contact-item"><strong>Web</strong> <a href="https://costalifeproperties.com" target="_blank" rel="noopener">costalifeproperties.com</a></div>
+    <div class="contact-item"><strong>&nbsp;</strong> <a href="https://pc-macs.es" target="_blank" rel="noopener">pc-macs.es</a></div>
+    <div class="contact-item"><strong>NIE</strong> X1516151Z</div>
+  </section>
 
-                    <div class="details-grid">
-                        <article class="detail-card" data-reveal>
-                            <i class="fa-solid fa-house-chimney"></i>
-                            <strong>Costa Life Properties</strong>
-                            <p>Real estate business established in January 2023.</p>
-                        </article>
-                        <article class="detail-card" data-reveal>
-                            <i class="fa-solid fa-laptop"></i>
-                            <strong>PC-Macs</strong>
-                            <p>IT services and repairs with 14+ years of local experience.</p>
-                        </article>
-                        <article class="detail-card" data-reveal>
-                            <i class="fa-solid fa-location-dot"></i>
-                            <strong>Address</strong>
-                            <p>Calle Caridad 5, 29680 Estepona</p>
-                        </article>
-                        <article class="detail-card" data-reveal>
-                            <i class="fa-solid fa-phone"></i>
-                            <strong>Direct phone</strong>
-                            <p>+34 670 938 077</p>
-                        </article>
-                    </div>
-                </div>
-            </div>
-        </section>
+  <footer>
+    &copy; Ben Flanagan &middot; Estepona, Costa del Sol
+  </footer>
 
-        <section class="section" id="businesses">
-            <div class="page-shell">
-                <div class="section-header" data-reveal>
-                    <span class="section-kicker">Businesses</span>
-                    <h2>Two businesses, one premium local presence</h2>
-                    <p class="section-copy">Each brand has its own focus, but both are built on reliability, local credibility and personal service.</p>
-                </div>
-
-                <div class="cards">
-                    <article class="business-card" data-reveal>
-                        <div class="business-media" style="background-image:url('https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=800');" aria-hidden="true">
-                            <div class="business-badge"><i class="fa-solid fa-key"></i> Real estate</div>
-                        </div>
-                        <div class="business-body">
-                            <h3>Costa Life Properties</h3>
-                            <p>A modern real estate brand serving Estepona and the wider Costa del Sol, with a focus on property sales, rentals and location-aware guidance for clients seeking quality and confidence.</p>
-
-                            <div class="pill-row" aria-label="Costa Life highlights">
-                                <span class="pill"><i class="fa-solid fa-calendar"></i> Est. Jan 2023</span>
-                                <span class="pill"><i class="fa-solid fa-location-arrow"></i> Estepona & Costa del Sol</span>
-                            </div>
-
-                            <ul class="list" aria-label="Costa Life services">
-                                <li><i class="fa-solid fa-check"></i><span>Property sales and buyer guidance</span></li>
-                                <li><i class="fa-solid fa-check"></i><span>Rentals and local market support</span></li>
-                                <li><i class="fa-solid fa-check"></i><span>Investment-focused assistance on the Costa del Sol</span></li>
-                            </ul>
-
-                            <div class="business-links">
-                                <a class="business-link" href="https://costalifeproperties.com" target="_blank" rel="noopener noreferrer">
-                                    <i class="fa-solid fa-globe"></i>
-                                    <span><strong>Website</strong>costalifeproperties.com</span>
-                                </a>
-                                <a class="business-link" href="mailto:admin@costalifeproperties.com">
-                                    <i class="fa-solid fa-envelope"></i>
-                                    <span><strong>Email</strong>admin@costalifeproperties.com</span>
-                                </a>
-                            </div>
-                        </div>
-                    </article>
-
-                    <article class="business-card" data-reveal>
-                        <div class="business-media" style="background-image:url('https://images.unsplash.com/photo-1517336714731-489689fd1ca8?w=800');" aria-hidden="true">
-                            <div class="business-badge"><i class="fa-solid fa-microchip"></i> IT services</div>
-                        </div>
-                        <div class="business-body">
-                            <h3>PC-Macs</h3>
-                            <p>A trusted Estepona technology business offering repairs, diagnostics and support across everyday devices and small-business IT needs, backed by more than 14 years of experience.</p>
-
-                            <div class="pill-row" aria-label="PC-Macs highlights">
-                                <span class="pill"><i class="fa-solid fa-award"></i> 14+ years</span>
-                                <span class="pill"><i class="fa-solid fa-shop"></i> Calle Caridad 5</span>
-                            </div>
-
-                            <ul class="list" aria-label="PC-Macs services">
-                                <li><i class="fa-solid fa-check"></i><span>PC and Mac repairs</span></li>
-                                <li><i class="fa-solid fa-check"></i><span>iPhone and iPad repair support</span></li>
-                                <li><i class="fa-solid fa-check"></i><span>WiFi, web and business IT services</span></li>
-                            </ul>
-
-                            <div class="business-links">
-                                <a class="business-link" href="tel:+34670938077">
-                                    <i class="fa-solid fa-phone"></i>
-                                    <span><strong>Phone</strong>+34 670 938 077</span>
-                                </a>
-                                <a class="business-link" href="https://pc-macs.es" target="_blank" rel="noopener noreferrer">
-                                    <i class="fa-solid fa-globe"></i>
-                                    <span><strong>Website</strong>pc-macs.es</span>
-                                </a>
-                            </div>
-                        </div>
-                    </article>
-                </div>
-            </div>
-        </section>
-
-        <section class="section" id="reviews">
-            <div class="page-shell">
-                <div class="section-header" data-reveal>
-                    <span class="section-kicker">Reviews</span>
-                    <h2>Trusted by local clients</h2>
-                    <p class="section-copy">A concise proof point, kept intentionally clean and credible.</p>
-                </div>
-
-                <div class="review-grid">
-                    <article class="review-card" data-reveal>
-                        <div class="quote-mark">“</div>
-                        <blockquote>Muy buen servicio!</blockquote>
-                        <footer>— Terttu Balson</footer>
-                    </article>
-                    <article class="review-card" data-reveal>
-                        <p>This profile is designed to position both brands clearly: Costa Life Properties for premium real estate presence, and PC-Macs for trusted local technical expertise.</p>
-                    </article>
-                </div>
-            </div>
-        </section>
-
-        <section class="section" id="contact">
-            <div class="page-shell">
-                <div class="contact-panel" data-reveal>
-                    <div class="section-header">
-                        <span class="section-kicker">Contact</span>
-                        <h2>Reach Ben directly</h2>
-                        <p>For property enquiries, IT services, or general local business contact in Estepona.</p>
-                    </div>
-
-                    <div class="contact-grid">
-                        <article class="contact-card">
-                            <span class="label">Email</span>
-                            <strong><i class="fa-solid fa-envelope"></i><a href="mailto:admin@costalifeproperties.com">admin@costalifeproperties.com</a></strong>
-                        </article>
-                        <article class="contact-card">
-                            <span class="label">Phone</span>
-                            <strong><i class="fa-solid fa-phone"></i><a href="tel:+34670938077">+34 670 938 077</a></strong>
-                        </article>
-                        <article class="contact-card">
-                            <span class="label">Websites</span>
-                            <p><i class="fa-solid fa-globe"></i><a href="https://costalifeproperties.com" target="_blank" rel="noopener noreferrer">costalifeproperties.com</a><br><i class="fa-solid fa-globe"></i><a href="https://pc-macs.es" target="_blank" rel="noopener noreferrer">pc-macs.es</a></p>
-                        </article>
-                        <article class="contact-card">
-                            <span class="label">Address</span>
-                            <address><i class="fa-solid fa-location-dot"></i>Calle Caridad 5, 29680 Estepona</address>
-                        </article>
-                    </div>
-
-                    <div class="hero-actions" style="margin-top: 1.25rem; margin-bottom: 0;">
-                        <a class="btn btn-primary" href="mailto:admin@costalifeproperties.com"><i class="fa-solid fa-paper-plane"></i> Email Costa Life Properties</a>
-                        <a class="btn btn-secondary" href="https://pc-macs.es" target="_blank" rel="noopener noreferrer"><i class="fa-solid fa-arrow-up-right-from-square"></i> Visit PC-Macs</a>
-                    </div>
-                </div>
-            </div>
-        </section>
-    </main>
-
-    <footer class="footer">
-        <div class="page-shell">
-            <p><strong>Ben Flanagan</strong> · Costa Life Properties · PC-Macs · Estepona, Costa del Sol</p>
-        </div>
-    </footer>
-
-    <script>
-        const revealElements = document.querySelectorAll('[data-reveal]');
-
-        if ('IntersectionObserver' in window) {
-            const observer = new IntersectionObserver((entries) => {
-                entries.forEach((entry) => {
-                    if (entry.isIntersecting) {
-                        entry.target.classList.add('is-visible');
-                        observer.unobserve(entry.target);
-                    }
-                });
-            }, { threshold: 0.16, rootMargin: '0px 0px -30px 0px' });
-
-            revealElements.forEach((element) => observer.observe(element));
-        } else {
-            revealElements.forEach((element) => element.classList.add('is-visible'));
-        }
-    </script>
 </body>
 </html>
